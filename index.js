@@ -192,15 +192,21 @@ module.exports = {
 
     this.setupPreprocessorRegistryAfterConfiguration('parent', originalApp.registry);
 
-    app.import('vendor/fontawesome.js');
+    app.import('vendor/fontawesome.js', { outputFile: 'assets/fontawesome.js' })
     Object.keys(this.fontawesomeConfig.icons).forEach(pack => {
-      app.import(`vendor/${pack}.js`, { outputFile: 'fontawesome.js' })
+      app.import(`vendor/${pack}.js`, { outputFile: 'assets/fontawesome.js' })
     })
-    app.import('vendor/autoLibrary.js', { outputFile: 'fontawesome.js' })
-    app.import('vendor/configure-fontawesome-styles.js', { outputFile: 'fontawesome.js' })
+    app.import('vendor/autoLibrary.js', { outputFile: 'assets/fontawesome.js' })
+    app.import('vendor/configure-fontawesome-styles.js', { outputFile: 'assets/fontawesome.js' })
 
     config.autoAddCss = false;
     app.import('vendor/fontawesome.css');
+  },
+
+  contentFor(type) {
+    if (type === 'body-footer') {
+      return '<script src="{{rootURL}}assets/fontawesome.js"></script>';
+    }
   },
 
   /**
