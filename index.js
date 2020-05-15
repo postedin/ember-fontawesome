@@ -203,9 +203,9 @@ module.exports = {
     app.import('vendor/fontawesome.css');
   },
 
-  contentFor(type) {
+  contentFor(type, options) {
     if (type === 'body-footer') {
-      return '<script src="{{rootURL}}assets/fontawesome.js"></script>';
+      return `<script src="${options.rootURL}assets/fontawesome.js"></script>`;
     }
   },
 
