@@ -192,7 +192,7 @@ module.exports = {
 
     this.setupPreprocessorRegistryAfterConfiguration('parent', originalApp.registry);
 
-    app.import('vendor/fontawesome.js', { outputFile: 'fontawesome.js' })
+    app.import('vendor/fontawesome.js');
     Object.keys(this.fontawesomeConfig.icons).forEach(pack => {
       app.import(`vendor/${pack}.js`, { outputFile: 'fontawesome.js' })
     })
