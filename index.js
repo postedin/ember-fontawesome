@@ -192,12 +192,12 @@ module.exports = {
 
     this.setupPreprocessorRegistryAfterConfiguration('parent', originalApp.registry);
 
-    app.import('vendor/fontawesome.js')
+    app.import('vendor/fontawesome.js', { outputFile: 'fontawesome.js' })
     Object.keys(this.fontawesomeConfig.icons).forEach(pack => {
-      app.import(`vendor/${pack}.js`)
+      app.import(`vendor/${pack}.js`, { outputFile: 'fontawesome.js' })
     })
-    app.import('vendor/autoLibrary.js')
-    app.import('vendor/configure-fontawesome-styles.js')
+    app.import('vendor/autoLibrary.js', { outputFile: 'fontawesome.js' })
+    app.import('vendor/configure-fontawesome-styles.js', { outputFile: 'fontawesome.js' })
 
     config.autoAddCss = false;
     app.import('vendor/fontawesome.css');
